@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td colspan="8">
+                <object width="800" height="600" onclick="alert(1)" id="videoControl" classid="clsid:AFBF5262-3FC2-4285-B016-56E7E2454AC2" data="data:application/x-oleobject;base64,YlK/r8I/hUKwFlbn4kVKwgAAAQAVYgAAVTUAAAAAAAA="></object>
+                <object id='videoControl' width="800" height="600"  data='data:application/x-oleobject;base64,YlK/r8I/hUKwFlbn4kVKwgAAAQAVYgAAVTUAAAAAAAA=' type='application/xhanhan-activex' CLSID='{AFBF5262-3FC2-4285-B016-56E7E2454AC2}' hidden></object>
+            </td>
+        </tr>
+        <tr>
+            <td>服务器IP：</td>
+            <td><input type="text" id="iptServerIP" value="192.168.30.114"/></td>
+            <td>摄像机ID：</td>
+            <td><input type="text" id="iptCamerId" value="32010300001320100001"/></td>
+            <td>登录用户ID：</td>
+            <td><input type="text" id="iptUserId" value="admin" /></td>
+            <td>登录密码：</td>
+            <td><input type="text" id="iptPassWord" value="admin" /></td>
+        </tr>
+        <tr>
+            <td>客户端IP：</td>
+            <td><input type="text" id="iptCustomIp" /></td>
+            <td>服务器端口：</td>
+            <td><input type="text" id="iptServerPort" value="5060" /></td>
+            <td><input type="button" onclick="javascript:StartVideo();" value="开始播放" /></td>
+            <td><input type="button" onclick="javascript: StopVideo();" value="停止播放" /></td>
+            <td><input type="button" onclick="javascript: CapPicture();" value="抓图" /></td>
+            <td><select name="sel" id="sel" style="display:block;" >
+                <option value="1">1屏</option>
+                <option value="4">4屏</option>
+                <option value="6">6屏</option>
+                <option value="8">8屏</option>
+                <option value="9">9屏</option>
+                <option value="13">13屏</option>
+                <option value="16">16屏</option>
+            </select>
+            </td>
+
+            <td><input type="button" onclick="javascript: videoRecord();" value="开始录像" /></td>
+            <td><input type="button" onclick="javascript: stopRecord();" value="停止录像" /></td>
+        </tr>
+        <tr>
+            <td><input type="text" id="timePlayback" value="2018-09-05 00:00:00" /></td>
+            <td><button onclick="getInputValue()" >回放</button></td>
+            <td>速度：</td>
+            <td>
+                <select name="sel" id="sel2" style="display:block;">
+                    <option value="-3">1/8X</option>
+                    <option value="-2">1/4X</option>
+                    <option value="-1">1/2X</option>
+                    <option value="0">1X</option>
+                    <option value="1">2X</option>
+                    <option value="2">4X</option>
+                    <option value="3">8X</option>
+                </select>
+            </td>
+            <td><button onclick="playOrStop()" >暂停/播放</button></td>
+            <td><button onclick="SetVideoStyle(12)" >近距</button></td>
+            <td><button onclick="SetVideoStyle(13)" >远距</button></td>
+        </tr>
+    </table>
+    <script src="js/monitor.js"></script>
+</body>
+</html>
