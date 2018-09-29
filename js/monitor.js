@@ -77,9 +77,15 @@ var videoControl = {
             return;
         }
 
+        var p;
         //param3:0-UDP,1-TCP
-        enableTcp = 1;
-        var p = ocxControl.EV9000APPOpenRealPlay(videoControl.LoginHandler, videoControl.WinIndex, enableTcp, soCode, 0);
+        if(GetMyBrowser()=='Chrome'){
+            p = ocxControl.EV9000APPOpenRealPlayEx(videoControl.LoginHandler, videoControl.WinIndex, 1, soCode, 0,true);
+        }
+        else{
+            enableTcp = 1;
+            p = ocxControl.EV9000APPOpenRealPlay(videoControl.LoginHandler, videoControl.WinIndex, enableTcp, soCode, 0);
+        }
         if (console) {
             console.debug("视频播放结果：" + p);
         }
@@ -504,6 +510,10 @@ function GetRtsp() {
     var customIp = $("#iptCustomIp").val();
     var serverIp = $("#iptServerIP").val();
     var serverPort = $("#iptServerPort").val();
+    if(GetMyBrowser()=='Chrome'){
+        userId= "WiscomV";
+        passWord = "WiscomV";
+    }
     uiVideoControl.startVideoPlay(ocxControl, camerId, userId, passWord, customIp, serverIp, serverPort);
 }
 
@@ -814,7 +824,7 @@ function GetMyBrowser() {
 // }
 window.onload = function () {
     console.log("GetMyBrowser()" + GetMyBrowser());
-    if (GetMyBrowser() == 'FF') {
+    if (GetMyBrowser() == 'FF'||GetMyBrowser()=='Chrome') {
         var child=document.getElementById("videoControl");
         child.parentNode.removeChild(child);
         document.getElementById("videoControl").style.display="block";
