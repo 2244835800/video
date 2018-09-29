@@ -18,7 +18,7 @@ var videoControl = {
     //param1:视频控件对象
     InintNVs: function (ocxControl) {
         if (!ocxControl) {
-            //alert('请下载视频播放控件！');
+            //alert('请下载视频播放控件');
             return false;
         }
 
